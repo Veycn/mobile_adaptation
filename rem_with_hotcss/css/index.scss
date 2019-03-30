@@ -1,0 +1,225 @@
+@import 'px2rem.scss';
+$designWidth:750;
+
+
+#header {
+    height: px2rem(100);
+    line-height: px2rem(100);
+    background: #d22147;
+    font-size:px2rem(28);
+    display: flex;
+    align-items: center;
+}
+#header a {
+    text-decoration: none;
+}
+#header a:nth-of-type(1){
+    color: #fff;
+    text-align: center;
+    flex: 0 0 px2rem(160);
+}
+#header a:nth-of-type(1)::after{
+    content: '';
+    display: inline-block;
+    width: px2rem(25);
+    height: px2rem(14);
+    background: url(../../images/ico_01.png);
+    background-size: cover;
+    margin-left: px2rem(8);
+}
+#header a:nth-of-type(2){
+    color: #fff;
+    text-align: center;
+    flex: 0 0 px2rem(138);
+}
+#header a:nth-of-type(2)::before{
+    content: '';
+    display: inline-block;
+    width: px2rem(26);
+    height: px2rem(26);
+    background: url(../../images/ico_03.png) no-repeat center;
+    background-size: cover;
+    margin-right: px2rem(8);
+}
+#header div{
+    flex: 1;
+}
+#header div .input {
+    width: 100%;
+    height: px2rem(64);
+    border-radius: px2rem(16);
+    border: none;
+    color: #e2c2c9;
+    box-sizing: border-box;
+    padding: 0 px2rem(20) 0 px2rem(68);
+    background: #ae3e56 url(../../images/ico_02.png) no-repeat px2rem(16) px2rem(10);
+    background-size:px2rem(44);
+    font-size: px2rem(28);
+}
+#header div .input::placeholder {
+    color: rgb(200, 200, 200);
+}
+
+/* banner */
+#banner{
+    text-align: center;
+    width: 100%;
+}
+#banner img {
+    width: 100%;
+}
+
+
+/* nav */
+
+#nav ul{
+    padding: 0;
+    width: 100%;
+    font-size: 0; /* 防止两个 li 之间有空隙 */
+    background: #f2f0f0;
+}
+#nav li {
+    width: 25%;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin: px2rem(20) 0;
+}
+#nav li a {
+    font-size: px2rem(28);
+    text-decoration: none;
+    color: #525252;
+}
+#nav li a img {
+    width: px2rem(75);
+    height: px2rem(75);
+    display: block; /* 失去文字属性, text-align 不起作用 */
+    margin: 0 auto px2rem(10) auto; /* 设置 block 居中 */
+}
+
+
+/* 广告 */
+
+#ad1 a{ 
+    float: left;
+}
+
+#ad1 a img{
+    width: px2rem(250);
+    height: px2rem(250);
+}
+
+#ad2 {
+    width: 100%;
+    background: #f2f0f0;
+    padding: px2rem(30) 0;
+}
+#ad2 img {
+    width: 100%;
+}
+
+
+/* list */
+
+#list h3 {
+    font-size: px2rem(32);
+    line-height: px2rem(80);
+    color: #131313;
+    font-weight: normal;
+    padding-left: px2rem(20);
+    border-bottom: 1px solid #c1c0c5;
+}
+#list h3::before{
+    content: '';
+    display: inline-block;
+    width: px2rem(8);
+    height: px2rem(32);
+    background: #cc0530;
+    border-radius: px2rem(5);
+    vertical-align: middle;
+    margin-right: px2rem(2);
+    
+}
+#list h3 span{
+    vertical-align: middle;
+}
+// @media screen and (-webkit-min-device-pixel-ratio: 2){
+//     #list h3::after{
+//         content: "";
+//         position: absolute;
+//         left: 0;
+//         bottom: 0;
+//         width: px2rem(750);
+//         height: 1px;
+//         border-bottom: 1px solid #c1c0c5;
+//         color: #c1c0c5;
+//         transform-origin: 0 0;
+//         transform: scaleY(0.5);
+//     }
+// }
+
+#list article {
+    border-bottom: 1px solid #c1c0c5;
+}
+#list article a {
+    padding: px2rem(20);
+    display: flex;
+}
+#list article .img {
+    flex: 0 0 auto;
+    padding-right: px2rem(30);
+}
+#list article .img img {
+    width: px2rem(214);
+    height: px2rem(194);
+}
+
+#list article .text{
+    flex: 2 2 auto;
+}
+
+#list article .text h4 {
+    font-size: px2rem(28);
+    line-height: px2rem(60);
+    color: #181818;
+    margin-bottom: px2rem(5);
+}
+#list article .text p {
+    font-size: px2rem(24);
+    line-height: px2rem(36);
+    color: #979797;
+    margin-bottom: px2rem(19);
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  /* 文本显示 2 行 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#list article .text .info {
+    font-size: px2rem(24);
+    height: px2rem(34);
+    line-height: px2rem(34);
+    color: #525252;
+}
+.text .info strong {
+    margin: 0 px2rem(9);
+    color: #cc0530;
+}
+.text .info .discount {
+    display: inline-block;
+    width: px2rem(84);
+    height: px2rem(33);
+    color: #fff;
+    box-sizing: border-box;
+    padding-left: px2rem(15);
+    margin-left: px2rem(15);
+    background: url(../../images/ico_04.gif) no-repeat;
+    background-size: cover;
+}
+.text .red {
+    float: right;
+    background: url(../../images/ico_05.png) no-repeat left center;
+    background-size: px2rem(24) px2rem(22);
+    padding-left: px2rem(30);
+}
