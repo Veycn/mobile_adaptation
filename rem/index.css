@@ -25,7 +25,7 @@
     display: inline-block;
     width: 12.5px;
     height: 7px;
-    background: url(./images/ico_01.png);
+    background: url(../images/ico_01.png);
     background-size: cover;
     margin-left: 4px;
 }
@@ -39,7 +39,7 @@
     display: inline-block;
     width: 13px;
     height: 13px;
-    background: url(./images/ico_03.png) no-repeat center;
+    background: url(../images/ico_03.png) no-repeat center;
     background-size: cover;
     margin-right: 4px;
 }
@@ -53,7 +53,7 @@
     border: none;
     color: #e2c2c9;
     text-indent: 34px;
-    background: #ae3e56 url(./images/ico_02.png) no-repeat 8px 5px;
+    background: #ae3e56 url(../images/ico_02.png) no-repeat 8px 5px;
     background-size: 22px;
 }
 
@@ -210,12 +210,12 @@
     box-sizing: border-box;
     padding-left: .15rem;
     margin-left: .15rem;
-    background: url(./images/ico_04.gif) no-repeat;
+    background: url(../images/ico_04.gif) no-repeat;
     background-size: cover;
 }
 .text .red {
     float: right;
-    background: url(./images/ico_05.png) no-repeat left center;
+    background: url(../images/ico_05.png) no-repeat left center;
     background-size: .24rem .22rem;
     padding-left: .3rem;
 }
