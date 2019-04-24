@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0
+        }
+
+        #banner {
+            position: relative;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        .wrap {
+            width: 300vw;
+            display: flex
+        }
+
+        .wrap a {
+            width: 100vw;
+        }
+
+        .wrap a img {
+            width: 100vw;
+            height: 50vw;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 4vw;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle span {
+            width: 2vw;
+            height: 2vw;
+            background: #fff;
+            border-radius: 50%;
+            margin: 0 1.5vw;
+        }
+
+        .circle span.active {
+            background: cornflowerblue
+        }
+    </style>
+    <script src="./js/transform.js"></script>
+</head>
+
+<body>
+    <section id="banner">
+        <div class="wrap">
+            <a href="#"><img src="./images/1.jpg" alt=""></a>
+            <a href="#"><img src="./images/2.jpg" alt=""></a>
+            <a href="#"><img src="./images/3.jpg" alt=""></a>
+        </div>
+        <div class="circle">
+            <span class="active"></span><span></span><span></span>
+        </div>
+    </section>
+    <script>
+        var banner = document.querySelector("#banner"),
+            wrap = document.querySelector(".wrap"),
+            spans = document.querySelectorAll('.circle span'),
+            imgW = banner.offsetWidth
+        let startPointX = 0, // 按下时手指的坐标
+            disPointX = 0,  // 松开手指时坐标的差值
+            startEleX = 0,   // 手指按下时元素的位置
+            index = 0,
+            lastIndex = 0   // 上一个索引
+        Transform(wrap)
+
+
+        // 实现无缝
+        wrap.innerHTML += wrap.innerHTML
+        wrap.style.width = wrap.children.length * imgW + 'px'
+        banner.addEventListener("touchstart", e => {
+            startPointX = e.changedTouches[0].pageX
+
+            if (index === 0) {
+                index = wrap.children.length / 2
+            }
+            if (index === wrap.children.length - 1) {
+                index = wrap.children.length / 2 - 1
+            }
+
+            wrap.style.transition = '' // 手指拖动的时候不要延迟
+            wrap.translateX = index * -imgW // index 改变, 修正 wrap的位置
+            startEleX = wrap.translateX
+            e.preventDefault()
+        })
+        banner.addEventListener("touchmove", e => {
+            disPointX = e.changedTouches[0].pageX - startPointX
+            wrap.translateX = disPointX + startEleX
+        })
+        banner.addEventListener("touchend", e => {
+            let backWidth = imgW / 8
+            if (Math.abs(disPointX) > backWidth) {
+                if (disPointX < 0) {   // 判断方向
+                    index++
+                } else {
+                    index--
+                }
+            }
+            wrap.style.transition = '0.3s'
+            wrap.translateX = - imgW * index
+
+            // 修改小圆点的位置
+            spans[lastIndex].className = ""
+            spans[index % (wrap.children.length / 2)].className = "active"
+            lastIndex = index % (wrap.children.length / 2)
+        })
+    </script>
+</body>
+
+</html>
